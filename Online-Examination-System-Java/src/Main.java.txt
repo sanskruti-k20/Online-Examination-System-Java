@@ -1,0 +1,85 @@
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        String[] questions = {
+            "Which language is used to develop Android applications?",
+            "Which keyword is used to create a class in Java?",
+            "Which of the following is NOT a feature of Java?"
+        };
+
+        String[][] options = {
+            {"1. Java", "2. HTML", "3. CSS", "4. SQL"},
+            {"1. create", "2. class", "3. define", "4. new"},
+            {"1. Object Oriented", "2. Platform Independent", "3. Pointer Support", "4. Secure"}
+        };
+
+        int[] answers = {1, 2, 3};
+
+        int score = 0;
+
+        System.out.println("=================================");
+        System.out.println("     ONLINE EXAMINATION SYSTEM");
+        System.out.println("=================================");
+
+        System.out.print("Enter your name: ");
+        String name = sc.nextLine();
+
+        System.out.println();
+        System.out.println("Welcome " + name);
+        System.out.println("There are 3 questions.");
+        System.out.println("Choose the correct option.");
+        System.out.println();
+
+        for (int i = 0; i < 3; i++) {
+
+            System.out.println("Question " + (i + 1) + ":");
+            System.out.println(questions[i]);
+
+            System.out.println(options[i][0]);
+            System.out.println(options[i][1]);
+            System.out.println(options[i][2]);
+            System.out.println(options[i][3]);
+
+            System.out.print("Enter your answer: ");
+            int userAnswer = sc.nextInt();
+
+            if (userAnswer == answers[i]) {
+                System.out.println("Correct!");
+                score++;
+            } else {
+                System.out.println("Wrong!");
+            }
+
+            System.out.println();
+        }
+
+        int wrong = 3 - score;
+        double percentage = (score * 100.0) / 3;
+
+        System.out.println("=================================");
+        System.out.println("           EXAM RESULT");
+        System.out.println("=================================");
+
+        System.out.println("Name: " + name);
+        System.out.println("Total Questions: 3");
+        System.out.println("Correct Answers: " + score);
+        System.out.println("Wrong Answers: " + wrong);
+        System.out.println("Marks: " + score + "/3");
+        System.out.println("Percentage: " + percentage + "%");
+
+        if (score >= 2) {
+            System.out.println("Result: PASS");
+        } else {
+            System.out.println("Result: FAIL");
+        }
+
+        System.out.println("=================================");
+
+        sc.close();
+    }
+}
